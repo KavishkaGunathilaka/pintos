@@ -578,7 +578,13 @@ allocate_tid (void)
 
   return tid;
 }
-
+
+/* Compare the wakeup time of two threads */
+bool cmp_wakeupticks (const struct list_elem *a, const struct list_elem *b, void *aux)
+{
+  return list_entry(a, struct thread, elem)->wakeup_tick < list_entry(b, struct thread, elem)->wakeup_tick;
+}
+
 /* Offset of `stack' member within `struct thread'.
    Used by switch.S, which can't figure it out on its own. */
 uint32_t thread_stack_ofs = offsetof (struct thread, stack);

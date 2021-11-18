@@ -98,6 +98,8 @@ struct thread
     uint32_t *pagedir;                  /* Page directory. */
 #endif
 
+    int64_t wakeup_tick;                /* Keeps track of the wakeup time */
+
     /* Owned by thread.c. */
     unsigned magic;                     /* Detects stack overflow. */
   };
@@ -137,5 +139,8 @@ int thread_get_nice (void);
 void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
+
+/* Helper functions to list_insert_ordered */
+bool cmp_wakeupticks (const struct list_elem*, const struct list_elem*, void*);
 
 #endif /* threads/thread.h */

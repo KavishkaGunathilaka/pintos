@@ -7,6 +7,8 @@
 #include "threads/interrupt.h"
 #include "threads/synch.h"
 #include "threads/thread.h"
+#include <kernel/list.h>
+
   
 /* See [8254] for hardware details of the 8254 timer chip. */
 
@@ -16,6 +18,9 @@
 #if TIMER_FREQ > 1000
 #error TIMER_FREQ <= 1000 recommended
 #endif
+
+/* list of processes in THREAD_BLOCKED state (sleeping threads) */
+static struct list sleeping_list;
 
 /* Number of timer ticks since OS booted. */
 static int64_t ticks;
@@ -30,6 +35,9 @@ static void busy_wait (int64_t loops);
 static void real_time_sleep (int64_t num, int32_t denom);
 static void real_time_delay (int64_t num, int32_t denom);
 
+/* check and wakeup slaeeping threads at each timer tick */
+static void wakeup_threads(void);
+
 /* Sets up the timer to interrupt TIMER_FREQ times per second,
    and registers the corresponding interrupt. */
 void
@@ -37,6 +45,9 @@ timer_init (void)
 {
   pit_configure_channel (0, 2, TIMER_FREQ);
   intr_register_ext (0x20, timer_interrupt, "8254 Timer");
+
+  /* initialize sleeping_list */
+  list_init(&sleeping_list);
 }
 
 /* Calibrates loops_per_tick, used to implement brief delays. */
@@ -89,11 +100,19 @@ timer_elapsed (int64_t then)
 void
 timer_sleep (int64_t ticks) 
 {
-  int64_t start = timer_ticks ();
 
   ASSERT (intr_get_level () == INTR_ON);
-  while (timer_elapsed (start) < ticks) 
-    thread_yield ();
+  /* set interrupts off to block the thread */
+  enum intr_level old_intr_level = intr_disable();
+  /* set wakup time for the thread */
+  thread_current()->wakeup_tick = timer_ticks() + ticks;
+  /* add thread to the sleeping queue */
+  list_insert_ordered(&sleeping_list, &thread_current()->elem, cmp_wakeupticks, NULL);
+  /* block the thread */
+  thread_block();
+  /* set interrupt level back to the original */
+  intr_set_level(old_intr_level);
+
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be
@@ -122,7 +141,6 @@ timer_nsleep (int64_t ns)
 
 /* Busy-waits for approximately MS milliseconds.  Interrupts need
    not be turned on.
-
    Busy waiting wastes CPU cycles, and busy waiting with
    interrupts off for the interval between timer ticks or longer
    will cause timer ticks to be lost.  Thus, use timer_msleep()
@@ -135,7 +153,6 @@ timer_mdelay (int64_t ms)
 
 /* Sleeps for approximately US microseconds.  Interrupts need not
    be turned on.
-
    Busy waiting wastes CPU cycles, and busy waiting with
    interrupts off for the interval between timer ticks or longer
    will cause timer ticks to be lost.  Thus, use timer_usleep()
@@ -148,7 +165,6 @@ timer_udelay (int64_t us)
 
 /* Sleeps execution for approximately NS nanoseconds.  Interrupts
    need not be turned on.
-
    Busy waiting wastes CPU cycles, and busy waiting with
    interrupts off for the interval between timer ticks or longer
    will cause timer ticks to be lost.  Thus, use timer_nsleep()
@@ -172,6 +188,8 @@ timer_interrupt (struct intr_frame *args UNUSED)
 {
   ticks++;
   thread_tick ();
+
+  wakeup_threads();
 }
 
 /* Returns true if LOOPS iterations waits for more than one timer
@@ -195,7 +213,6 @@ too_many_loops (unsigned loops)
 
 /* Iterates through a simple loop LOOPS times, for implementing
    brief delays.
-
    Marked NO_INLINE because code alignment can significantly
    affect timings, so that if this function was inlined
    differently in different places the results would be difficult
@@ -243,4 +260,23 @@ real_time_delay (int64_t num, int32_t denom)
      the possibility of overflow. */
   ASSERT (denom % 1000 == 0);
   busy_wait (loops_per_tick * num / 1000 * TIMER_FREQ / (denom / 1000)); 
+}
+
+static void wakeup_threads(){
+  /* iterate through sleeping queue and wakeup threads 
+    whose wakeuptick is less than or eaual to current tick */
+  struct list_elem *e;
+	struct thread *t;
+  while(!list_empty(&sleeping_list))
+	{
+		e = list_front(&sleeping_list);
+	  t = list_entry (e, struct thread, elem);
+
+	  if(t->wakeup_tick > ticks ){
+      break;
+    }
+
+    list_remove (e);
+    thread_unblock(t);
+	}
 }
