@@ -1,0 +1,3408 @@
+warning: test tests/userprog/exec-bound doesn't count for grading
+warning: test tests/userprog/exec-bound-2 doesn't count for grading
+warning: test tests/userprog/exec-bound-3 doesn't count for grading
+warning: test tests/userprog/sc-boundary-3 doesn't count for grading
+TOTAL TESTING SCORE: 0.0%
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+SUMMARY BY TEST SET
+
+Test Set                                      Pts Max  % Ttl  % Max
+--------------------------------------------- --- --- ------ ------
+tests/userprog/Rubric.functionality             0/108   0.0%/ 35.0%
+tests/userprog/Rubric.robustness                0/ 88   0.0%/ 25.0%
+tests/userprog/no-vm/Rubric                     0/  1   0.0%/ 10.0%
+tests/filesys/base/Rubric                       0/ 30   0.0%/ 30.0%
+--------------------------------------------- --- --- ------ ------
+Total                                                   0.0%/100.0%
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+SUMMARY OF INDIVIDUAL TESTS
+
+Functionality of system calls (tests/userprog/Rubric.functionality):
+	- Test argument passing on Pintos command line.
+	  ** 0/ 3 tests/userprog/args-none
+	  ** 0/ 3 tests/userprog/args-single
+	  ** 0/ 3 tests/userprog/args-multiple
+	  ** 0/ 3 tests/userprog/args-many
+	  ** 0/ 3 tests/userprog/args-dbl-space
+
+	- Test "create" system call.
+	  ** 0/ 3 tests/userprog/create-empty
+	  ** 0/ 3 tests/userprog/create-long
+	  ** 0/ 3 tests/userprog/create-normal
+	  ** 0/ 3 tests/userprog/create-exists
+
+	- Test "open" system call.
+	  ** 0/ 3 tests/userprog/open-missing
+	  ** 0/ 3 tests/userprog/open-normal
+	  ** 0/ 3 tests/userprog/open-twice
+
+	- Test "read" system call.
+	  ** 0/ 3 tests/userprog/read-normal
+	  ** 0/ 3 tests/userprog/read-zero
+
+	- Test "write" system call.
+	  ** 0/ 3 tests/userprog/write-normal
+	  ** 0/ 3 tests/userprog/write-zero
+
+	- Test "close" system call.
+	  ** 0/ 3 tests/userprog/close-normal
+
+	- Test "exec" system call.
+	  ** 0/ 5 tests/userprog/exec-once
+	  ** 0/ 5 tests/userprog/exec-multiple
+	  ** 0/ 5 tests/userprog/exec-arg
+
+	- Test "wait" system call.
+	  ** 0/ 5 tests/userprog/wait-simple
+	  ** 0/ 5 tests/userprog/wait-twice
+
+	- Test "exit" system call.
+	  ** 0/ 5 tests/userprog/exit
+
+	- Test "halt" system call.
+	  ** 0/ 3 tests/userprog/halt
+
+	- Test recursive execution of user programs.
+	  ** 0/15 tests/userprog/multi-recurse
+
+	- Test read-only executable feature.
+	  ** 0/ 3 tests/userprog/rox-simple
+	  ** 0/ 3 tests/userprog/rox-child
+	  ** 0/ 3 tests/userprog/rox-multichild
+
+	- Section summary.
+	      0/ 28 tests passed
+	      0/108 points subtotal
+
+Robustness of system calls (tests/userprog/Rubric.robustness):
+	- Test robustness of file descriptor handling.
+	  ** 0/ 2 tests/userprog/close-stdin
+	  ** 0/ 2 tests/userprog/close-stdout
+	  ** 0/ 2 tests/userprog/close-bad-fd
+	  ** 0/ 2 tests/userprog/close-twice
+	  ** 0/ 2 tests/userprog/read-bad-fd
+	  ** 0/ 2 tests/userprog/read-stdout
+	  ** 0/ 2 tests/userprog/write-bad-fd
+	  ** 0/ 2 tests/userprog/write-stdin
+	  ** 0/ 2 tests/userprog/multi-child-fd
+
+	- Test robustness of pointer handling.
+	  ** 0/ 3 tests/userprog/create-bad-ptr
+	  ** 0/ 3 tests/userprog/exec-bad-ptr
+	  ** 0/ 3 tests/userprog/open-bad-ptr
+	  ** 0/ 3 tests/userprog/read-bad-ptr
+	  ** 0/ 3 tests/userprog/write-bad-ptr
+
+	- Test robustness of buffer copying across page boundaries.
+	  ** 0/ 3 tests/userprog/create-bound
+	  ** 0/ 3 tests/userprog/open-boundary
+	  ** 0/ 3 tests/userprog/read-boundary
+	  ** 0/ 3 tests/userprog/write-boundary
+
+	- Test handling of null pointer and empty strings.
+	  ** 0/ 2 tests/userprog/create-null
+	  ** 0/ 2 tests/userprog/open-null
+	  ** 0/ 2 tests/userprog/open-empty
+
+	- Test robustness of system call implementation.
+	  ** 0/ 3 tests/userprog/sc-bad-arg
+	  ** 0/ 3 tests/userprog/sc-bad-sp
+	  ** 0/ 5 tests/userprog/sc-boundary
+	  ** 0/ 5 tests/userprog/sc-boundary-2
+
+	- Test robustness of "exec" and "wait" system calls.
+	  ** 0/ 5 tests/userprog/exec-missing
+	  ** 0/ 5 tests/userprog/wait-bad-pid
+	  ** 0/ 5 tests/userprog/wait-killed
+
+	- Test robustness of exception handling.
+	  ** 0/ 1 tests/userprog/bad-read
+	  ** 0/ 1 tests/userprog/bad-write
+	  ** 0/ 1 tests/userprog/bad-jump
+	  ** 0/ 1 tests/userprog/bad-read2
+	  ** 0/ 1 tests/userprog/bad-write2
+	  ** 0/ 1 tests/userprog/bad-jump2
+
+	- Section summary.
+	      0/ 34 tests passed
+	      0/ 88 points subtotal
+
+Functionality of features that VM might break (tests/userprog/no-vm/Rubric):
+
+	  ** 0/ 1 tests/userprog/no-vm/multi-oom
+
+	- Section summary.
+	      0/  1 tests passed
+	      0/  1 points subtotal
+
+Functionality of base file system (tests/filesys/base/Rubric):
+	- Test basic support for small files.
+	  ** 0/ 1 tests/filesys/base/sm-create
+	  ** 0/ 2 tests/filesys/base/sm-full
+	  ** 0/ 2 tests/filesys/base/sm-random
+	  ** 0/ 2 tests/filesys/base/sm-seq-block
+	  ** 0/ 3 tests/filesys/base/sm-seq-random
+
+	- Test basic support for large files.
+	  ** 0/ 1 tests/filesys/base/lg-create
+	  ** 0/ 2 tests/filesys/base/lg-full
+	  ** 0/ 2 tests/filesys/base/lg-random
+	  ** 0/ 2 tests/filesys/base/lg-seq-block
+	  ** 0/ 3 tests/filesys/base/lg-seq-random
+
+	- Test synchronized multiprogram access to files.
+	  ** 0/ 4 tests/filesys/base/syn-read
+	  ** 0/ 4 tests/filesys/base/syn-write
+	  ** 0/ 2 tests/filesys/base/syn-remove
+
+	- Section summary.
+	      0/ 13 tests passed
+	      0/ 30 points subtotal
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/args-none FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/args-none:
+
+Copying tests/userprog/args-none to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/mFtSegNaY2.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run args-none
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'args-none' into the file system...
+Erasing ustar archive...
+Executing 'args-none':
+Execution of 'args-none' complete.
+Timer: 62 ticks
+Thread: 33 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/args-single FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/args-single:
+
+Copying tests/userprog/args-single to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/bN4sTgzVRS.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run 'args-single onearg'
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'args-single' into the file system...
+Erasing ustar archive...
+Executing 'args-single onearg':
+Execution of 'args-single onearg' complete.
+Timer: 56 ticks
+Thread: 30 idle ticks, 26 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 862 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/args-multiple FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/args-multiple:
+
+Copying tests/userprog/args-multiple to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/NGm722vwXs.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run 'args-multiple some arguments for you!'
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'args-multiple' into the file system...
+Erasing ustar archive...
+Executing 'args-multiple some arguments for you!':
+Execution of 'args-multiple some arguments for you!' complete.
+Timer: 59 ticks
+Thread: 30 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 921 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/args-many FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/args-many:
+
+Copying tests/userprog/args-many to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/H0wgpIZsmp.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run 'args-many a b c d e f g h i j k l m n o p q r s t u v'
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'args-many' into the file system...
+Erasing ustar archive...
+Executing 'args-many a b c d e f g h i j k l m n o p q r s t u v':
+Execution of 'args-many a b c d e f g h i j k l m n o p q r s t u v' complete.
+Timer: 62 ticks
+Thread: 33 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 965 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/args-dbl-space FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/args-dbl-space:
+
+Copying tests/userprog/args-dbl-space to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/ULiSMb__SG.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run 'args-dbl-space two  spaces!'
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'args-dbl-space' into the file system...
+Erasing ustar archive...
+Executing 'args-dbl-space two  spaces!':
+Execution of 'args-dbl-space two  spaces!' complete.
+Timer: 64 ticks
+Thread: 32 idle ticks, 32 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 892 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/create-empty FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/create-empty:
+
+Copying tests/userprog/create-empty to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/HyOgxdSucL.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run create-empty
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-empty' into the file system...
+Erasing ustar archive...
+Executing 'create-empty':
+Execution of 'create-empty' complete.
+Timer: 61 ticks
+Thread: 35 idle ticks, 26 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/create-long FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/create-long:
+
+Copying tests/userprog/create-long to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/NhcTjr04Fx.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run create-long
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-long' into the file system...
+Erasing ustar archive...
+Executing 'create-long':
+Execution of 'create-long' complete.
+Timer: 62 ticks
+Thread: 32 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/create-normal FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/create-normal:
+
+Copying tests/userprog/create-normal to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/ICbHFUEmES.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run create-normal
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-normal' into the file system...
+Erasing ustar archive...
+Executing 'create-normal':
+Execution of 'create-normal' complete.
+Timer: 61 ticks
+Thread: 33 idle ticks, 28 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 847 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/create-exists FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/create-exists:
+
+Copying tests/userprog/create-exists to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/N_AJLI0wTk.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run create-exists
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,555,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-exists' into the file system...
+Erasing ustar archive...
+Executing 'create-exists':
+Execution of 'create-exists' complete.
+Timer: 61 ticks
+Thread: 33 idle ticks, 28 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 847 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/open-missing FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/open-missing:
+
+Copying tests/userprog/open-missing to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/Oqo9Y6HX5U.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run open-missing
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-missing' into the file system...
+Erasing ustar archive...
+Executing 'open-missing':
+Execution of 'open-missing' complete.
+Timer: 59 ticks
+Thread: 31 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 65 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/open-normal FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/open-normal:
+
+Copying tests/userprog/open-normal to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/t5Bx5BYM5N.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run open-normal
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  105,062,400 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-normal' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'open-normal':
+Execution of 'open-normal' complete.
+Timer: 66 ticks
+Thread: 34 idle ticks, 32 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 884 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/open-twice FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/open-twice:
+
+Copying tests/userprog/open-twice to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/7MYorNLu2Q.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run open-twice
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-twice' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'open-twice':
+Execution of 'open-twice' complete.
+Timer: 64 ticks
+Thread: 33 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 880 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/read-normal FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/read-normal:
+
+Copying tests/userprog/read-normal to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/NmCTDxkrKo.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run read-normal
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  110,796,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'read-normal' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'read-normal':
+Execution of 'read-normal' complete.
+Timer: 66 ticks
+Thread: 35 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 884 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/read-zero FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/read-zero:
+
+Copying tests/userprog/read-zero to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/P0mIrwV9lW.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run read-zero
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  111,206,400 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'read-zero' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'read-zero':
+Execution of 'read-zero' complete.
+Timer: 66 ticks
+Thread: 34 idle ticks, 32 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 876 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/write-normal FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/write-normal:
+
+Copying tests/userprog/write-normal to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/k0f_0cEBOL.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run write-normal
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 75 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'write-normal' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'write-normal':
+Execution of 'write-normal' complete.
+Timer: 65 ticks
+Thread: 33 idle ticks, 32 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 156 writes
+hda3 (scratch): 74 reads, 2 writes
+Console: 888 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/write-zero FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/write-zero:
+
+Copying tests/userprog/write-zero to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/rtVdTWn9Ty.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run write-zero
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'write-zero' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'write-zero':
+Execution of 'write-zero' complete.
+Timer: 58 ticks
+Thread: 30 idle ticks, 28 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 880 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/close-normal FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/close-normal:
+
+Copying tests/userprog/close-normal to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/ztkTS5EnAv.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run close-normal
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  105,267,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'close-normal' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'close-normal':
+Execution of 'close-normal' complete.
+Timer: 68 ticks
+Thread: 35 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 888 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/exec-once FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/exec-once:
+
+Copying tests/userprog/exec-once to scratch partition...
+Copying tests/userprog/child-simple to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/y7DWKnq_VE.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run exec-once
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  112,844,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 141 sectors (70 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'exec-once' into the file system...
+Putting 'child-simple' into the file system...
+Erasing ustar archive...
+Executing 'exec-once':
+Execution of 'exec-once' complete.
+Timer: 66 ticks
+Thread: 33 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 288 writes
+hda3 (scratch): 140 reads, 2 writes
+Console: 880 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/exec-multiple FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/exec-multiple:
+
+Copying tests/userprog/exec-multiple to scratch partition...
+Copying tests/userprog/child-simple to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/Bze0f41XUJ.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run exec-multiple
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 141 sectors (70 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'exec-multiple' into the file system...
+Putting 'child-simple' into the file system...
+Erasing ustar archive...
+Executing 'exec-multiple':
+Execution of 'exec-multiple' complete.
+Timer: 63 ticks
+Thread: 30 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 288 writes
+hda3 (scratch): 140 reads, 2 writes
+Console: 896 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/exec-arg FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/exec-arg:
+
+Copying tests/userprog/exec-arg to scratch partition...
+Copying tests/userprog/child-args to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/gViQJIFpqT.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run exec-arg
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 140 sectors (70 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'exec-arg' into the file system...
+Putting 'child-args' into the file system...
+Erasing ustar archive...
+Executing 'exec-arg':
+Execution of 'exec-arg' complete.
+Timer: 60 ticks
+Thread: 30 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 286 writes
+hda3 (scratch): 139 reads, 2 writes
+Console: 874 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/wait-simple FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/wait-simple:
+
+Copying tests/userprog/wait-simple to scratch partition...
+Copying tests/userprog/child-simple to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/r61D3F0N0r.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run wait-simple
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  153,804,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 141 sectors (70 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'wait-simple' into the file system...
+Putting 'child-simple' into the file system...
+Erasing ustar archive...
+Executing 'wait-simple':
+Execution of 'wait-simple' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 288 writes
+hda3 (scratch): 140 reads, 2 writes
+Console: 888 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/wait-twice FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/wait-twice:
+
+Copying tests/userprog/wait-twice to scratch partition...
+Copying tests/userprog/child-simple to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/MHMmnULHTI.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run wait-twice
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 141 sectors (70 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'wait-twice' into the file system...
+Putting 'child-simple' into the file system...
+Erasing ustar archive...
+Executing 'wait-twice':
+Execution of 'wait-twice' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 288 writes
+hda3 (scratch): 140 reads, 2 writes
+Console: 884 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/exit FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/exit:
+
+Copying tests/userprog/exit to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/kCy8NLextE.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run exit
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'exit' into the file system...
+Erasing ustar archive...
+Executing 'exit':
+Execution of 'exit' complete.
+Timer: 58 ticks
+Thread: 33 idle ticks, 25 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 811 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/halt FAILURE:
+
+missing 'begin' message
+
+OUTPUT FROM tests/userprog/halt:
+
+Copying tests/userprog/halt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/5hL0VcG7I8.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg......................
+Kernel command line: -q -f extract run halt
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'halt' into the file system...
+Erasing ustar archive...
+Executing 'halt':
+Execution of 'halt' complete.
+Timer: 60 ticks
+Thread: 31 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 811 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/multi-recurse FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/multi-recurse:
+
+Copying tests/userprog/multi-recurse to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/8DcaTUTB4G.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run 'multi-recurse 15'
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 79 sectors (39 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'multi-recurse' into the file system...
+Erasing ustar archive...
+Executing 'multi-recurse 15':
+Execution of 'multi-recurse 15' complete.
+Timer: 60 ticks
+Thread: 33 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 25 reads, 162 writes
+hda3 (scratch): 78 reads, 2 writes
+Console: 858 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/rox-simple FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/rox-simple:
+
+Copying tests/userprog/rox-simple to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/daEeZqhcMr.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run rox-simple
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'rox-simple' into the file system...
+Erasing ustar archive...
+Executing 'rox-simple':
+Execution of 'rox-simple' complete.
+Timer: 62 ticks
+Thread: 33 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 835 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/rox-child FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/rox-child:
+
+Copying tests/userprog/rox-child to scratch partition...
+Copying tests/userprog/child-rox to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/481Sr2NgRp.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run rox-child
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 151 sectors (75 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'rox-child' into the file system...
+Putting 'child-rox' into the file system...
+Erasing ustar archive...
+Executing 'rox-child':
+Execution of 'rox-child' complete.
+Timer: 68 ticks
+Thread: 35 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 308 writes
+hda3 (scratch): 150 reads, 2 writes
+Console: 877 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/rox-multichild FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/rox-multichild:
+
+Copying tests/userprog/rox-multichild to scratch partition...
+Copying tests/userprog/child-rox to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/LjXt8r9v5S.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run rox-multichild
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 151 sectors (75 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'rox-multichild' into the file system...
+Putting 'child-rox' into the file system...
+Erasing ustar archive...
+Executing 'rox-multichild':
+Execution of 'rox-multichild' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 308 writes
+hda3 (scratch): 150 reads, 2 writes
+Console: 897 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/close-stdin FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/close-stdin:
+
+Copying tests/userprog/close-stdin to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/OckxfICqEQ.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run close-stdin
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  110,796,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'close-stdin' into the file system...
+Erasing ustar archive...
+Executing 'close-stdin':
+Execution of 'close-stdin' complete.
+Timer: 63 ticks
+Thread: 30 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/close-stdout FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/close-stdout:
+
+Copying tests/userprog/close-stdout to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/Jk0s0R51yO.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run close-stdout
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'close-stdout' into the file system...
+Erasing ustar archive...
+Executing 'close-stdout':
+Execution of 'close-stdout' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/close-bad-fd FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/close-bad-fd:
+
+Copying tests/userprog/close-bad-fd to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/IYddmxKlMS.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run close-bad-fd
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  104,755,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'close-bad-fd' into the file system...
+Erasing ustar archive...
+Executing 'close-bad-fd':
+Execution of 'close-bad-fd' complete.
+Timer: 57 ticks
+Thread: 33 idle ticks, 24 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/close-twice FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/close-twice:
+
+Copying tests/userprog/close-twice to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/un8l6m0yCp.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run close-twice
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  127,590,400 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'close-twice' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'close-twice':
+Execution of 'close-twice' complete.
+Timer: 58 ticks
+Thread: 30 idle ticks, 28 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 884 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/read-bad-fd FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/read-bad-fd:
+
+Copying tests/userprog/read-bad-fd to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/oz6viNMX7u.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run read-bad-fd
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'read-bad-fd' into the file system...
+Erasing ustar archive...
+Executing 'read-bad-fd':
+Execution of 'read-bad-fd' complete.
+Timer: 62 ticks
+Thread: 35 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/read-stdout FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/read-stdout:
+
+Copying tests/userprog/read-stdout to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/y54KpKVohQ.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run read-stdout
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'read-stdout' into the file system...
+Erasing ustar archive...
+Executing 'read-stdout':
+Execution of 'read-stdout' complete.
+Timer: 59 ticks
+Thread: 30 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 25 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/write-bad-fd FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/write-bad-fd:
+
+Copying tests/userprog/write-bad-fd to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/TjT2ejjZOX.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run write-bad-fd
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'write-bad-fd' into the file system...
+Erasing ustar archive...
+Executing 'write-bad-fd':
+Execution of 'write-bad-fd' complete.
+Timer: 62 ticks
+Thread: 32 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/write-stdin FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/write-stdin:
+
+Copying tests/userprog/write-stdin to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/SpzJ8AOlXT.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run write-stdin
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'write-stdin' into the file system...
+Erasing ustar archive...
+Executing 'write-stdin':
+Execution of 'write-stdin' complete.
+Timer: 59 ticks
+Thread: 30 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/multi-child-fd FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/multi-child-fd:
+
+Copying tests/userprog/multi-child-fd to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+Copying tests/userprog/child-close to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/IThERgKODM.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run multi-child-fd
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 152 sectors (76 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'multi-child-fd' into the file system...
+Putting 'sample.txt' into the file system...
+Putting 'child-close' into the file system...
+Erasing ustar archive...
+Executing 'multi-child-fd':
+Execution of 'multi-child-fd' complete.
+Timer: 68 ticks
+Thread: 38 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 78 reads, 312 writes
+hda3 (scratch): 151 reads, 2 writes
+Console: 944 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/create-bad-ptr FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/create-bad-ptr:
+
+Copying tests/userprog/create-bad-ptr to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/OsyfBIgc2q.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run create-bad-ptr
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-bad-ptr' into the file system...
+Erasing ustar archive...
+Executing 'create-bad-ptr':
+Execution of 'create-bad-ptr' complete.
+Timer: 57 ticks
+Thread: 30 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 851 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/exec-bad-ptr FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/exec-bad-ptr:
+
+Copying tests/userprog/exec-bad-ptr to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/s6fpTQOEhf.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run exec-bad-ptr
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  104,755,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'exec-bad-ptr' into the file system...
+Erasing ustar archive...
+Executing 'exec-bad-ptr':
+Execution of 'exec-bad-ptr' complete.
+Timer: 58 ticks
+Thread: 31 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/open-bad-ptr FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/open-bad-ptr:
+
+Copying tests/userprog/open-bad-ptr to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/enF0A5HCt1.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run open-bad-ptr
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  105,676,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-bad-ptr' into the file system...
+Erasing ustar archive...
+Executing 'open-bad-ptr':
+Execution of 'open-bad-ptr' complete.
+Timer: 66 ticks
+Thread: 34 idle ticks, 32 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/read-bad-ptr FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/read-bad-ptr:
+
+Copying tests/userprog/read-bad-ptr to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/YjdTKmFvAc.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run read-bad-ptr
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'read-bad-ptr' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'read-bad-ptr':
+Execution of 'read-bad-ptr' complete.
+Timer: 65 ticks
+Thread: 31 idle ticks, 34 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 888 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/write-bad-ptr FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/write-bad-ptr:
+
+Copying tests/userprog/write-bad-ptr to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/VYoAqxaacY.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'write-bad-ptr' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 154 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 892 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/create-bound FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/create-bound:
+
+Copying tests/userprog/create-bound to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/iYFYAw6Hjv.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run create-bound
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  104,755,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-bound' into the file system...
+Erasing ustar archive...
+Executing 'create-bound':
+Execution of 'create-bound' complete.
+Timer: 54 ticks
+Thread: 30 idle ticks, 24 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/open-boundary FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/open-boundary:
+
+Copying tests/userprog/open-boundary to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/U9OCEtnB9s.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run open-boundary
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  124,108,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 76 sectors (38 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-boundary' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'open-boundary':
+Execution of 'open-boundary' complete.
+Timer: 63 ticks
+Thread: 33 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 158 writes
+hda3 (scratch): 75 reads, 2 writes
+Console: 892 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/read-boundary FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/read-boundary:
+
+Copying tests/userprog/read-boundary to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/LxNghLuvTP.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run read-boundary
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  108,544,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 77 sectors (38 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'read-boundary' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'read-boundary':
+Execution of 'read-boundary' complete.
+Timer: 66 ticks
+Thread: 33 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 160 writes
+hda3 (scratch): 76 reads, 2 writes
+Console: 892 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/write-boundary FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/write-boundary:
+
+Copying tests/userprog/write-boundary to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/S134ogaVcY.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run write-boundary
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 77 sectors (38 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'write-boundary' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'write-boundary':
+Execution of 'write-boundary' complete.
+Timer: 59 ticks
+Thread: 31 idle ticks, 28 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 160 writes
+hda3 (scratch): 76 reads, 2 writes
+Console: 896 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/create-null FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/create-null:
+
+Copying tests/userprog/create-null to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/p9nyWvbh0W.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run create-null
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'create-null' into the file system...
+Erasing ustar archive...
+Executing 'create-null':
+Execution of 'create-null' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/open-null FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/open-null:
+
+Copying tests/userprog/open-null to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/6d9wBK8h0R.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run open-null
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  111,206,400 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-null' into the file system...
+Erasing ustar archive...
+Executing 'open-null':
+Execution of 'open-null' complete.
+Timer: 60 ticks
+Thread: 30 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 64 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/open-empty FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/open-empty:
+
+Copying tests/userprog/open-empty to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/07GGMQUHpX.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run open-empty
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'open-empty' into the file system...
+Erasing ustar archive...
+Executing 'open-empty':
+Execution of 'open-empty' complete.
+Timer: 61 ticks
+Thread: 34 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 835 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/sc-bad-arg FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/sc-bad-arg:
+
+Copying tests/userprog/sc-bad-arg to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/3FNbKUV_3k.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sc-bad-arg
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sc-bad-arg' into the file system...
+Erasing ustar archive...
+Executing 'sc-bad-arg':
+Execution of 'sc-bad-arg' complete.
+Timer: 62 ticks
+Thread: 35 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 835 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/sc-bad-sp FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/sc-bad-sp:
+
+Copying tests/userprog/sc-bad-sp to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/1lUNqQI9vq.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sc-bad-sp
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sc-bad-sp' into the file system...
+Erasing ustar archive...
+Executing 'sc-bad-sp':
+Execution of 'sc-bad-sp' complete.
+Timer: 61 ticks
+Thread: 34 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/sc-boundary FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/sc-boundary:
+
+Copying tests/userprog/sc-boundary to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/BXFlRik52N.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+.
+Kernel command line: -q -f extract run sc-boundary
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sc-boundary' into the file system...
+Erasing ustar archive...
+Executing 'sc-boundary':
+Execution of 'sc-boundary' complete.
+Timer: 61 ticks
+Thread: 31 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/sc-boundary-2 FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/sc-boundary-2:
+
+Copying tests/userprog/sc-boundary-2 to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/9xAk7UwE0V.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sc-boundary-2
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sc-boundary-2' into the file system...
+Erasing ustar archive...
+Executing 'sc-boundary-2':
+Execution of 'sc-boundary-2' complete.
+Timer: 62 ticks
+Thread: 31 idle ticks, 32 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 847 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/exec-missing FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/exec-missing:
+
+Copying tests/userprog/exec-missing to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/ZSQdLnVAcy.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run exec-missing
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  104,755,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'exec-missing' into the file system...
+Erasing ustar archive...
+Executing 'exec-missing':
+Execution of 'exec-missing' complete.
+Timer: 53 ticks
+Thread: 32 idle ticks, 21 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/wait-bad-pid FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/wait-bad-pid:
+
+Copying tests/userprog/wait-bad-pid to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/WmYVbYzpXR.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run wait-bad-pid
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 71 sectors (35 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'wait-bad-pid' into the file system...
+Erasing ustar archive...
+Executing 'wait-bad-pid':
+Execution of 'wait-bad-pid' complete.
+Timer: 65 ticks
+Thread: 33 idle ticks, 32 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 146 writes
+hda3 (scratch): 70 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/wait-killed FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/wait-killed:
+
+Copying tests/userprog/wait-killed to scratch partition...
+Copying tests/userprog/child-bad to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/iUySUFpZtG.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run wait-killed
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 142 sectors (71 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'wait-killed' into the file system...
+Putting 'child-bad' into the file system...
+Erasing ustar archive...
+Executing 'wait-killed':
+Execution of 'wait-killed' complete.
+Timer: 67 ticks
+Thread: 36 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 290 writes
+hda3 (scratch): 141 reads, 2 writes
+Console: 885 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/bad-read FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/bad-read:
+
+Copying tests/userprog/bad-read to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/2sOqgWBsnO.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run bad-read
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  127,590,400 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'bad-read' into the file system...
+Erasing ustar archive...
+Executing 'bad-read':
+Execution of 'bad-read' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 58 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 827 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/bad-write FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/bad-write:
+
+Copying tests/userprog/bad-write to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/GB0v7aAFVf.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run bad-write
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,457,600 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'bad-write' into the file system...
+Erasing ustar archive...
+Executing 'bad-write':
+Execution of 'bad-write' complete.
+Timer: 60 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/bad-jump FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/bad-jump:
+
+Copying tests/userprog/bad-jump to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/7eqUqnt6iX.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run bad-jump
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'bad-jump' into the file system...
+Erasing ustar archive...
+Executing 'bad-jump':
+Execution of 'bad-jump' complete.
+Timer: 61 ticks
+Thread: 32 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 827 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/bad-read2 FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/bad-read2:
+
+Copying tests/userprog/bad-read2 to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/8I7Sk_Jf34.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run bad-read2
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'bad-read2' into the file system...
+Erasing ustar archive...
+Executing 'bad-read2':
+Execution of 'bad-read2' complete.
+Timer: 63 ticks
+Thread: 33 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/bad-write2 FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/bad-write2:
+
+Copying tests/userprog/bad-write2 to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/EYIDmYfdRO.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run bad-write2
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'bad-write2' into the file system...
+Erasing ustar archive...
+Executing 'bad-write2':
+Execution of 'bad-write2' complete.
+Timer: 60 ticks
+Thread: 34 idle ticks, 26 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 835 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/bad-jump2 FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/bad-jump2:
+
+Copying tests/userprog/bad-jump2 to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/S6MwrOloxW.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run bad-jump2
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 72 sectors (36 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'bad-jump2' into the file system...
+Erasing ustar archive...
+Executing 'bad-jump2':
+Execution of 'bad-jump2' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 58 reads, 148 writes
+hda3 (scratch): 71 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/userprog/no-vm/multi-oom FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/userprog/no-vm/multi-oom:
+
+Copying tests/userprog/no-vm/multi-oom to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/qCWGc2_CjF.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run multi-oom
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 83 sectors (41 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'multi-oom' into the file system...
+Erasing ustar archive...
+Executing 'multi-oom':
+Execution of 'multi-oom' complete.
+Timer: 57 ticks
+Thread: 30 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 170 writes
+hda3 (scratch): 82 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/sm-create FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/sm-create:
+
+Copying tests/filesys/base/sm-create to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/c330XDLQA0.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sm-create
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  111,206,400 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sm-create' into the file system...
+Erasing ustar archive...
+Executing 'sm-create':
+Execution of 'sm-create' complete.
+Timer: 61 ticks
+Thread: 30 idle ticks, 31 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/sm-full FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/sm-full:
+
+Copying tests/filesys/base/sm-full to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/AVNsNF9SQr.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sm-full
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sm-full' into the file system...
+Erasing ustar archive...
+Executing 'sm-full':
+Execution of 'sm-full' complete.
+Timer: 58 ticks
+Thread: 30 idle ticks, 28 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 823 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/sm-random FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/sm-random:
+
+Copying tests/filesys/base/sm-random to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/qwKptKxCLe.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sm-random
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 76 sectors (38 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sm-random' into the file system...
+Erasing ustar archive...
+Executing 'sm-random':
+Execution of 'sm-random' complete.
+Timer: 60 ticks
+Thread: 33 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 156 writes
+hda3 (scratch): 75 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/sm-seq-block FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/sm-seq-block:
+
+Copying tests/filesys/base/sm-seq-block to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/nh74fXXiUV.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sm-seq-block
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sm-seq-block' into the file system...
+Erasing ustar archive...
+Executing 'sm-seq-block':
+Execution of 'sm-seq-block' complete.
+Timer: 58 ticks
+Thread: 30 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/sm-seq-random FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/sm-seq-random:
+
+Copying tests/filesys/base/sm-seq-random to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/kE8Ndb88WC.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run sm-seq-random
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  114,483,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'sm-seq-random' into the file system...
+Erasing ustar archive...
+Executing 'sm-seq-random':
+Execution of 'sm-seq-random' complete.
+Timer: 60 ticks
+Thread: 30 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 847 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/lg-create FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/lg-create:
+
+Copying tests/filesys/base/lg-create to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/AktvyCSd8S.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run lg-create
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'lg-create' into the file system...
+Erasing ustar archive...
+Executing 'lg-create':
+Execution of 'lg-create' complete.
+Timer: 57 ticks
+Thread: 30 idle ticks, 27 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/lg-full FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/lg-full:
+
+Copying tests/filesys/base/lg-full to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/MpVoH1MahS.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run lg-full
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'lg-full' into the file system...
+Erasing ustar archive...
+Executing 'lg-full':
+Execution of 'lg-full' complete.
+Timer: 63 ticks
+Thread: 33 idle ticks, 30 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 823 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/lg-random FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/lg-random:
+
+Copying tests/filesys/base/lg-random to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/2IdTLHw1Vh.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run lg-random
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 77 sectors (38 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'lg-random' into the file system...
+Erasing ustar archive...
+Executing 'lg-random':
+Execution of 'lg-random' complete.
+Timer: 58 ticks
+Thread: 30 idle ticks, 28 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 158 writes
+hda3 (scratch): 76 reads, 2 writes
+Console: 831 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/lg-seq-block FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/lg-seq-block:
+
+Copying tests/filesys/base/lg-seq-block to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/dATh0TzOs0.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run lg-seq-block
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  105,472,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'lg-seq-block' into the file system...
+Erasing ustar archive...
+Executing 'lg-seq-block':
+Execution of 'lg-seq-block' complete.
+Timer: 68 ticks
+Thread: 33 idle ticks, 35 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 843 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/lg-seq-random FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/lg-seq-random:
+
+Copying tests/filesys/base/lg-seq-random to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/QPI8JiyRJV.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run lg-seq-random
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  130,867,200 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 74 sectors (37 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'lg-seq-random' into the file system...
+Erasing ustar archive...
+Executing 'lg-seq-random':
+Execution of 'lg-seq-random' complete.
+Timer: 61 ticks
+Thread: 32 idle ticks, 29 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 152 writes
+hda3 (scratch): 73 reads, 2 writes
+Console: 847 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/syn-read FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/syn-read:
+
+Copying tests/filesys/base/syn-read to scratch partition...
+Copying tests/filesys/base/child-syn-read to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/zOiPA5iRqm.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run syn-read
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  123,904,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 155 sectors (77 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'syn-read' into the file system...
+Putting 'child-syn-read' into the file system...
+Erasing ustar archive...
+Executing 'syn-read':
+Execution of 'syn-read' complete.
+Timer: 66 ticks
+Thread: 33 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 316 writes
+hda3 (scratch): 154 reads, 2 writes
+Console: 878 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/syn-write FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/syn-write:
+
+Copying tests/filesys/base/syn-write to scratch partition...
+Copying tests/filesys/base/child-syn-wrt to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/JRbOXVeXup.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run syn-write
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  105,472,000 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 156 sectors (78 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'syn-write' into the file system...
+Putting 'child-syn-wrt' into the file system...
+Erasing ustar archive...
+Executing 'syn-write':
+Execution of 'syn-write' complete.
+Timer: 70 ticks
+Thread: 34 idle ticks, 37 kernel ticks, 0 user ticks
+hda2 (filesys): 51 reads, 318 writes
+hda3 (scratch): 155 reads, 2 writes
+Console: 881 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/filesys/base/syn-remove FAILURE:
+
+Run didn't produce any output
+
+OUTPUT FROM tests/filesys/base/syn-remove:
+
+Copying tests/filesys/base/syn-remove to scratch partition...
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/pk3tZlYuQm.dsk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+Booting from Hard Disk...
+PPiinnttooss  hhddaa1
+1
+LLooaaddiinngg.....................
+Kernel command line: -q -f extract run syn-remove
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  106,700,800 loops/s.
+hda: 5,040 sectors (2 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 189 sectors (94 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 76 sectors (38 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'syn-remove' into the file system...
+Erasing ustar archive...
+Executing 'syn-remove':
+Execution of 'syn-remove' complete.
+Timer: 63 ticks
+Thread: 30 idle ticks, 33 kernel ticks, 0 user ticks
+hda2 (filesys): 26 reads, 156 writes
+hda3 (scratch): 75 reads, 2 writes
+Console: 835 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

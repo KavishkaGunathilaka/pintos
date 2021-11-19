@@ -1,0 +1,2 @@
+pintos -p tests/userprog/args-none -a args-none -- -q  -f run args-none
+pintos -p tests/userprog/args-single -a args-single -- -q  -f run 'args-single onearg'

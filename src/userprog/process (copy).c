@@ -38,11 +38,15 @@ process_execute (const char *file_name)
     return TID_ERROR;
   strlcpy (fn_copy, file_name, PGSIZE);
 
-  char *save_ptr;
-  file_name = strtok_r (file_name, " ", &save_ptr);
+  char *save_ptr, *exec_name, *copy;
+  copy = (char*)malloc(sizeof(file_name));
+  strlcpy (copy, file_name, strlen(file_name)+1);
+  exec_name = strtok_r (copy, " ", &save_ptr);
+
+  // printf("%s***************%s\n", exec_name,fn_copy);
 
   /* Create a new thread to execute FILE_NAME. */
-  tid = thread_create (file_name, PRI_DEFAULT, start_process, fn_copy);
+  tid = thread_create (exec_name, PRI_DEFAULT, start_process, fn_copy);
   if (tid == TID_ERROR)
     palloc_free_page (fn_copy); 
   return tid;
@@ -63,9 +67,14 @@ start_process (void *file_name_)
   if_.cs = SEL_UCSEG;
   if_.eflags = FLAG_IF | FLAG_MBS;
   success = load (file_name, &if_.eip, &if_.esp);
+  
+  char *save_ptr, *exec_name, *copy;
+  copy = (char*)malloc(sizeof(char*)*strlen(file_name));
+  strlcpy (copy, file_name, strlen(file_name)+1);
+  exec_name = strtok_r (copy, " ", &save_ptr);
 
   /* If load failed, quit. */
-  palloc_free_page (file_name);
+  palloc_free_page (exec_name);
   if (!success) 
     thread_exit ();
 
@@ -227,18 +236,16 @@ load (const char *file_name, void (**eip) (void), void **esp)
   process_activate ();
 
   /* Open executable file. */
-  char *save_ptr, *fn_copy;
-  fn_copy = palloc_get_page (0);
-  if (fn_copy == NULL)
-    return TID_ERROR;
-  strlcpy (fn_copy, file_name, PGSIZE);
+  char *save_ptr, *exec_name, *copy;
+  copy = (char*)malloc(sizeof(file_name));
+  strlcpy (copy, file_name, strlen(file_name)+1);
+  exec_name = strtok_r (copy, " ", &save_ptr);
 
-  file_name = strtok_r (file_name, " ", &save_ptr);
+  file = filesys_open (exec_name);
 
-  file = filesys_open (file_name);
   if (file == NULL) 
     {
-      printf ("load: %s: open failed\n", file_name);
+      printf ("load: %s: open failed\n", exec_name);
       goto done; 
     }
 
@@ -251,10 +258,10 @@ load (const char *file_name, void (**eip) (void), void **esp)
       || ehdr.e_phentsize != sizeof (struct Elf32_Phdr)
       || ehdr.e_phnum > 1024) 
     {
-      printf ("load: %s: error loading executable\n", file_name);
+      printf ("load: %s: error loading executable\n", exec_name);
       goto done; 
     }
-
+  free(copy);
   /* Read program headers. */
   file_ofs = ehdr.e_phoff;
   for (i = 0; i < ehdr.e_phnum; i++) 
@@ -315,7 +322,7 @@ load (const char *file_name, void (**eip) (void), void **esp)
     }
 
   /* Set up stack. */
-  if (!setup_stack (esp, fn_copy))
+  if (!setup_stack (esp, file_name))
     goto done;
 
   /* Start address. */
@@ -444,7 +451,7 @@ setup_stack (void **esp, char *file_name)
 {
   uint8_t *kpage;
   bool success = false;
-
+  printf("******************7\n");
   kpage = palloc_get_page (PAL_USER | PAL_ZERO);
   if (kpage != NULL) 
     {
@@ -454,7 +461,7 @@ setup_stack (void **esp, char *file_name)
       else
         palloc_free_page (kpage);
     }
-
+  printf("******************8\n");
   int argc = 0;
   int stackSize = 0;
   //default size for the arguv is 10 chars
@@ -474,7 +481,7 @@ setup_stack (void **esp, char *file_name)
     *esp -= strlen(argv->args[i])+1;
     stackSize += strlen(argv->args[i])+1;
     memcpy(*esp, argv->args[i], strlen(argv->args[i])+1);
-    //hex_dump((uintptr_t)*esp, *esp, stackSize, true);
+    hex_dump((uintptr_t)*esp, *esp, stackSize, true);
     argv->args[i] = *esp;
   }
 
@@ -484,7 +491,7 @@ setup_stack (void **esp, char *file_name)
     *esp -= word_align;
     stackSize += word_align;
     memset(*esp, 0, word_align);
-    //hex_dump((uintptr_t)*esp, *esp, stackSize, true);
+    hex_dump((uintptr_t)*esp, *esp, stackSize, true);
   }
 
   *esp -= 4;
@@ -496,7 +503,7 @@ setup_stack (void **esp, char *file_name)
     *esp -= sizeof(char*);
     stackSize += sizeof(char*);
     memcpy(*esp,&argv->args[i], sizeof(char*));
-    //hex_dump((uintptr_t)*esp, *esp, stackSize, true);
+    hex_dump((uintptr_t)*esp, *esp, stackSize, true);
   }
 
   char* argvAddress = *esp;
