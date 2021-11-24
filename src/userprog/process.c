@@ -91,6 +91,7 @@ start_process (void *file_name_)
 int
 process_wait (tid_t child_tid UNUSED) 
 {
+  printf("waiting.......\n");
   while (true){
     thread_yield();
   }
@@ -326,6 +327,7 @@ load (const char *file_name, void (**eip) (void), void **esp)
  done:
   /* We arrive here whether the load is successful or not. */
   file_close (file);
+  palloc_free_page (fn_copy); 
   return success;
 }
 
@@ -464,7 +466,7 @@ setup_stack (void **esp, char *file_name)
   char *token, *save_ptr;
   //printf("%s*******\n", file_name);
   for (token = strtok_r (file_name, " ", &save_ptr); token != NULL; token = strtok_r (NULL, " ", &save_ptr)){
-    printf("%s\n", token);
+    //printf("%s\n", token);
     insertArgv(argv, token);
     argc++;
   }
@@ -516,8 +518,7 @@ setup_stack (void **esp, char *file_name)
   stackSize += sizeof(void*);
   memset(*esp, 0, sizeof(void*));
 
-  hex_dump((uintptr_t)*esp, *esp, stackSize, true);
-
+  //hex_dump((uintptr_t)*esp, *esp, stackSize, true);
   return success;
 }
 
