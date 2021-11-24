@@ -96,6 +96,10 @@ struct thread
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
     uint32_t *pagedir;                  /* Page directory. */
+    struct list_elem childElem;         /* List element for childList. */
+    struct list childList;              /* List of current threads childs */
+    struct thread* parent;              /* Parent of the current thread */
+    bool waiting;                       /* To check whether process_wait is called on current thread */
 #endif
 
     int64_t wakeup_tick;                /* Keeps track of the wakeup time */
@@ -142,5 +146,9 @@ int thread_get_load_avg (void);
 
 /* Helper functions to list_insert_ordered */
 bool cmp_wakeupticks (const struct list_elem*, const struct list_elem*, void*);
+
+struct thread* getThread(tid_t);
+struct thread* isChild(tid_t);
+void setChild(tid_t);
 
 #endif /* threads/thread.h */

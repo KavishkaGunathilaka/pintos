@@ -43,8 +43,12 @@ process_execute (const char *file_name)
 
   /* Create a new thread to execute FILE_NAME. */
   tid = thread_create (file_name, PRI_DEFAULT, start_process, fn_copy);
+
   if (tid == TID_ERROR)
-    palloc_free_page (fn_copy); 
+    palloc_free_page (fn_copy);
+
+  setChild(tid);
+
   return tid;
 }
 
@@ -89,11 +93,21 @@ start_process (void *file_name_)
    This function will be implemented in problem 2-2.  For now, it
    does nothing. */
 int
-process_wait (tid_t child_tid UNUSED) 
+process_wait (tid_t child_tid) 
 {
-  printf("waiting.......\n");
-  while (true){
-    thread_yield();
+  //printf("waiting.......\n");
+  struct thread* child;
+  if ((child = isChild(child_tid))){
+    if (!child->waiting){
+      child->waiting = true;
+      enum intr_level oldLevel = intr_disable();
+      thread_block();
+      intr_set_level(oldLevel);
+    } else {
+      return -1;
+    }
+  } else {
+    return -1;
   }
 }
 
@@ -564,3 +578,4 @@ void freeArgv(Argv *a) {
   a->args = NULL;
   a->used = a->size = 0;
 }
+

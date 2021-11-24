@@ -284,6 +284,8 @@ thread_exit (void)
 
 #ifdef USERPROG
   process_exit ();
+  thread_unblock(thread_current()->parent);
+  thread_current()->waiting = false;
 #endif
 
   /* Remove thread from all threads list, set our status to dying,
@@ -462,6 +464,10 @@ init_thread (struct thread *t, const char *name, int priority)
   strlcpy (t->name, name, sizeof t->name);
   t->stack = (uint8_t *) t + PGSIZE;
   t->priority = priority;
+  #ifdef USERPROG
+    list_init(&t->childList);
+    t->waiting = false;
+  #endif
   t->magic = THREAD_MAGIC;
 
   old_level = intr_disable ();
@@ -580,11 +586,39 @@ allocate_tid (void)
 }
 
 /* Compare the wakeup time of two threads */
-bool cmp_wakeupticks (const struct list_elem *a, const struct list_elem *b, void *aux)
+bool cmp_wakeupticks (const struct list_elem *a, const struct list_elem *b, void *aux UNUSED) 
 {
   return list_entry(a, struct thread, elem)->wakeup_tick < list_entry(b, struct thread, elem)->wakeup_tick;
 }
 
+struct thread* getThread(tid_t threadId){
+  for (struct list_elem* e = list_begin(&all_list); e != list_end(&all_list); e = list_next(e)){
+    struct thread* t = list_entry(e, struct thread, allelem);
+    if (t->tid == threadId){
+      return t;
+    }
+  }
+  return NULL;
+}
+
+#ifdef USERPROG
+struct thread* isChild(tid_t child_tid){
+  struct thread* curThread = thread_current();
+  for (struct list_elem* e = list_begin(&curThread->childList); e != list_end(&curThread->childList); e = list_next(e)){
+    struct thread* t = list_entry(e, struct thread, childElem);
+    if (t->tid == child_tid){
+      return t;
+    }
+  }
+  return NULL;
+}
+
+void setChild(tid_t tid){
+  struct thread* child = getThread(tid);
+  list_push_back(&thread_current()->childList, &child->childElem);
+  child->parent = thread_current();
+}
+#endif
 /* Offset of `stack' member within `struct thread'.
    Used by switch.S, which can't figure it out on its own. */
 uint32_t thread_stack_ofs = offsetof (struct thread, stack);
