@@ -284,7 +284,8 @@ thread_exit (void)
 
 #ifdef USERPROG
   process_exit ();
-  thread_unblock(thread_current()->parent);
+  list_remove(&thread_current()->childElem);
+  sema_up(&thread_current()->waitSema);
   thread_current()->waiting = false;
 #endif
 
@@ -467,6 +468,9 @@ init_thread (struct thread *t, const char *name, int priority)
   #ifdef USERPROG
     list_init(&t->childList);
     t->waiting = false;
+    sema_init(&t->waitSema, 0);
+    t->childStatus = -1;
+    t->nextFD = 2;
   #endif
   t->magic = THREAD_MAGIC;
 

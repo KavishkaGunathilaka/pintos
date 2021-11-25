@@ -1,3 +1,6 @@
+#include "lib/user/syscall.h"
+#include "threads/synch.h"
+
 #ifndef USERPROG_SYSCALL_H
 #define USERPROG_SYSCALL_H
 
@@ -9,6 +12,14 @@
 
 void syscall_init (void);
 
+struct lock fileSysLock;
+
 void exit(int);
 int write(int, const void*, unsigned);
+void halt(void);
+pid_t exec(const char*);
+int wait(pid_t);
+bool create(const char*, unsigned);
+bool remove(const char*);
+int open(const char*);
 #endif /* userprog/syscall.h */

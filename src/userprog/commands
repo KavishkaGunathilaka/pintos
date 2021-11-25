@@ -1,2 +1,17 @@
+pintos-mkdisk filesys.dsk --filesys-size=2 
+pintos -- -f -q
+
 pintos -p tests/userprog/args-none -a args-none -- -q  -f run args-none
 pintos -p tests/userprog/args-single -a args-single -- -q  -f run 'args-single onearg'
+pintos -p tests/userprog/exec-arg -a exec-arg -p tests/userprog/child-args -a child-args -- -q  -f run exec-arg
+
+pintos -p tests/userprog/exec-once -a exec-once -p tests/userprog/child-simple -a child-simple -- -q  -f run exec-once
+pintos -p tests/userprog/exec-arg -a exec-arg -p tests/userprog/child-args -a child-args -- -q  -f run exec-arg
+pintos -p tests/userprog/exec-bound -a exec-bound -p tests/userprog/child-args -a child-args -- -q  -f run exec-bound
+pintos -p tests/userprog/exec-multiple -a exec-multiple -p tests/userprog/child-simple -a child-simple -- -q  -f run exec-multiple
+
+pintos -p tests/userprog/wait-simple -a wait-simple -p tests/userprog/child-simple -a child-simple -- -q  -f run wait-simple
+pintos -p tests/userprog/wait-killed -a wait-killed -p tests/userprog/child-bad -a child-bad -- -q  -f run wait-killed
+
+pintos -p tests/userprog/create-empty -a create-empty -- -q  -f run create-empty
+pintos -p tests/userprog/create-normal -a create-normal -- -q  -f run create-normal

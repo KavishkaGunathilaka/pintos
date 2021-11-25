@@ -17,6 +17,7 @@
 #include "threads/palloc.h"
 #include "threads/thread.h"
 #include "threads/vaddr.h"
+#include "threads/synch.h"
 
 static thread_func start_process NO_RETURN;
 static bool load (const char *cmdline, void (**eip) (void), void **esp);
@@ -95,14 +96,12 @@ start_process (void *file_name_)
 int
 process_wait (tid_t child_tid) 
 {
-  //printf("waiting.......\n");
   struct thread* child;
   if ((child = isChild(child_tid))){
     if (!child->waiting){
       child->waiting = true;
-      enum intr_level oldLevel = intr_disable();
-      thread_block();
-      intr_set_level(oldLevel);
+      sema_down(&child->waitSema);
+      return thread_current()->childStatus;
     } else {
       return -1;
     }

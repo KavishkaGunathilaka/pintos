@@ -4,6 +4,7 @@
 #include <debug.h>
 #include <list.h>
 #include <stdint.h>
+#include "synch.h"
 
 /* States in a thread's life cycle. */
 enum thread_status
@@ -100,6 +101,10 @@ struct thread
     struct list childList;              /* List of current threads childs */
     struct thread* parent;              /* Parent of the current thread */
     bool waiting;                       /* To check whether process_wait is called on current thread */
+    int childStatus;                    /* Exit status of the child */
+    struct semaphore waitSema;          /* Semaphore for waiting */
+    struct file* fileDes[64];           /* File descriptor table for the thread */
+    int nextFD;                         /* Next fd to allocate */
 #endif
 
     int64_t wakeup_tick;                /* Keeps track of the wakeup time */
